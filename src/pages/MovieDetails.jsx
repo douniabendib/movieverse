@@ -23,7 +23,7 @@ function MovieDetails() {
   if (error) return <p>Erreur : {error}</p>;
 
   return (
-    <div>
+    <div className="details">
       <img
         src={movie.poster_path ? `${IMG_URL}${movie.poster_path}` : ''}
         alt={movie.title}
@@ -33,7 +33,6 @@ function MovieDetails() {
       <p>Genres : {movie.genres.map((g) => g.name).join(', ')}</p>
       <p>Durée : {movie.runtime} min</p>
       <p>Note : {movie.vote_average.toFixed(1)}</p>
-      {/* AJOUT 3 : le bouton */}
       <button onClick={() => toggleFavorite(movie)}>
         {isFavorite(movie.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
       </button>

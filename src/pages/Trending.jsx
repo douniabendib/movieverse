@@ -60,35 +60,35 @@ function Trending() {
     <div>
       <h1>{debouncedQuery.trim() ? 'Résultats' : 'Trending'}</h1>
 
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Rechercher un film..."
-      />
+      <div className="filters">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Rechercher un film..."
+        />
 
-      <input
-        type="text"
-        value={year}
-        onChange={(e) => setYear(e.target.value)}
-        placeholder="Année (ex. 2024)"
-        maxLength={4}
-      />
+        <input
+          type="text"
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+          placeholder="Année (ex. 2024)"
+          maxLength={4}
+        />
 
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-        <option value="">Trier par...</option>
-        <option value="popularity">Popularité</option>
-        <option value="rating">Note</option>
-        <option value="date">Date de sortie</option>
-      </select>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="">Trier par...</option>
+          <option value="popularity">Popularité</option>
+          <option value="rating">Note</option>
+          <option value="date">Date de sortie</option>
+        </select>
+      </div>
 
       {loading && <p>Chargement...</p>}
       {error && <p>Erreur : {error}</p>}
-      {!loading && !error && movies.length === 0 && (
-        <p>Aucun résultat.</p>
-      )}
+      {!loading && !error && movies.length === 0 && <p>Aucun résultat.</p>}
 
-      <div>
+      <div className="movie-grid">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

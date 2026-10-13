@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <Link to="/">Trending</Link>
       <Link to="/favorites">Favoris</Link>
     </nav>

@@ -4,7 +4,7 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 function MovieCard({ movie }) {
   return (
-    <Link to={`/movie/${movie.id}`}>
+    <Link className="movie-card" to={`/movie/${movie.id}`}>
       <img
         src={movie.poster_path ? `${IMG_URL}${movie.poster_path}` : ''}
         alt={movie.title}

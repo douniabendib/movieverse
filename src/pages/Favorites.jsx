@@ -9,12 +9,14 @@ function Favorites() {
   return (
     <div>
       <h1>Favoris</h1>
-      {favorites.map((movie) => (
-        <div key={movie.id}>
-          <MovieCard movie={movie} />
-          <button onClick={() => toggleFavorite(movie)}>Supprimer</button>
-        </div>
-      ))}
+      <div className="movie-grid">
+        {favorites.map((movie) => (
+          <div key={movie.id}>
+            <MovieCard movie={movie} />
+            <button onClick={() => toggleFavorite(movie)}>Supprimer</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
