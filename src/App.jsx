@@ -13,6 +13,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
+      <footer>Données fournies par TMDB.</footer>
     </>
   );
 }
