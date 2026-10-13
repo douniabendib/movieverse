@@ -11,3 +11,13 @@ export async function getTrending() {
   const data = await res.json();
   return data.results;
 }
+
+export async function getMovieDetails(id) {
+  const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+
+  if (!res.ok) {
+    throw new Error('Film introuvable');
+  }
+
+  return res.json();
+}
