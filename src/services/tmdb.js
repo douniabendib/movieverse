@@ -34,3 +34,21 @@ export async function searchMovies(query) {
   const data = await res.json();
   return data.results;
 }
+
+export async function discoverMovies({ year, sortBy }) {
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+    sort_by: sortBy,
+    'vote_count.gte': 100,
+  });
+  if (year) params.set('primary_release_year', year);
+
+  const res = await fetch(`${BASE_URL}/discover/movie?${params}`);
+
+  if (!res.ok) {
+    throw new Error('Impossible de charger les films');
+  }
+
+  const data = await res.json();
+  return data.results;
+}
